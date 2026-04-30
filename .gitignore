@@ -1,0 +1,7 @@
+.cache
+main
+**/build/**
+*.exe
+*.a
+*.o
+*.out
