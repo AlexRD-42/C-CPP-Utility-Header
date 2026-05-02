@@ -18,11 +18,11 @@
 
 #define MIN3(x, y, z)		MIN(x, MIN(y, z))
 #define MAX3(x, y, z)		MAX(x, MAX(y, z))
-#define ABSMIN3(x, y, z)	MIN3(ABS(x), ABS(y), ABS(z))
-#define ABSMAX3(x, y, z)	MAX3(ABS(x), ABS(y), ABS(z))
-
 #define MIN4(x, y, z, w)	MIN(MIN(x, y), MIN(z, w))
 #define MAX4(x, y, z, w)	MAX(MAX(x, y), MAX(z, w))
+
+#define ABSMIN3(x, y, z)	MIN3(ABS(x), ABS(y), ABS(z))
+#define ABSMAX3(x, y, z)	MAX3(ABS(x), ABS(y), ABS(z))
 #define ABSMIN4(x, y, z, w)	MIN4(ABS(x), ABS(y), ABS(z), ABS(w))
 #define ABSMAX4(x, y, z, w)	MAX4(ABS(x), ABS(y), ABS(z), ABS(w))
 
@@ -30,9 +30,9 @@
 #define LOG2(x)				(63u - CLZ(x))	// TODO: maybe math helpers dont belong in this
 
 // === Generic Helpers =====================================
-#define ARRAY_COUNT(arr)	(sizeof(arr) / sizeof((arr)[0]))
+#define ARRAY_SIZE(arr)		(sizeof(arr) / sizeof((arr)[0]))
 #define ARRAY_END(arr)		(&(arr)[ARRAY_SIZE(arr)])
-#define SWAP(a, b) ({__auto_type ___tmp = (a); (a) = (b); (b) = ___tmp; (void)0;})
+#define SWAP(a, b) 			({auto _swap_tmp_ = (a); (a) = (b); (b) = ___tmp; (void)0;})
 
 #define STRINGIFY_(x)		#x
 #define STRINGIFY(x)		STRINGIFY_(x)

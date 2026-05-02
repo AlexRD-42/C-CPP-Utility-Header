@@ -3,6 +3,8 @@ See if it's worth it to convert, because it means that there will be an over-rel
 
 ## Figure out a cross language solution for constexpr
 That involves both the choose expr, builtin constant, generic constexpr and consteval
+Trying to get constexpr function() behavior in C, because that'd be very useful
+
 
 #ifdef __cplusplus
 	#define CONST_SELECT(cond, a, b) ({typeof(a) x; if constexpr (cond) x = (a); else x = (b); x;})

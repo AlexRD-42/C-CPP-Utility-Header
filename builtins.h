@@ -3,13 +3,17 @@
 
 #define ALWAYS_INLINE	static inline __attribute__((always_inline))
 #define NOINLINE		__attribute__((noinline))
-#define PURE			__attribute__((pure))
-#define CONST_FN		__attribute__((const))
-#define PACKED			__attribute__((packed))
+#define PURE			__attribute__((pure))			// Function produces no observable side effects (may read from memory)
+#define KPURE			__attribute__((const))			// Function depends only on its arguments (doesn't read from memory)
+#define PACKED			__attribute__((packed))			// Struct has no padding
 #define ALIGNED(n)		__attribute__((aligned(n)))
+#define COLD			__attribute__(cold)
+#define HOT				__attribute__(hot)
+#define FLATTEN			__attribute__((flatten))		// Function calls inside this function are aggressively inlined
+
+#define UNREACHABLE()	__builtin_unreachable()
 #define LIKELY(x)		__builtin_expect(!!(x), 1)
 #define UNLIKELY(x)		__builtin_expect(!!(x), 0)
-#define UNREACHABLE()	__builtin_unreachable()
 #if defined(__clang__)
 	#define ASSUME(x)	__builtin_assume(x)
 #elif defined(__GNUC__)

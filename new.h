@@ -23,3 +23,11 @@ typedef _Complex float f32x2;
 
 #define PREV_POW2(x) ((typeof(x))1 << ((sizeof(x) * 8 - 1) - CLZ(x)))	// TODO: fix this
 #define NEXT_POW2(x) ((typeof(x))1 << ((sizeof(x) * 8 + 1) - CLZ(x)))
+
+#ifndef NDEBUG
+    #define ON_DEBUG(x) (x)
+#else
+    #define ON_DEBUG(x) ((void)0)
+#endif
+
+#define FCAST(a) ({float _tmp; MEMCPY_INLINE(&_tmp, &a, sizeof(_tmp)); _tmp;})

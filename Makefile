@@ -10,7 +10,7 @@ BUILD_PATH = build
 INC_PATH = 
 OBJ_PATH = $(BUILD_PATH)/obj
 BIN = $(NAME)
-OBJS = $(addprefix $(OBJ_PATH)/, $(SRCS:.cpp=.o))
+OBJS = $(addprefix $(OBJ_PATH)/, $(SRCS:.c=.o))
 
 # Flags --------------------------------------- #
 CXX = clang

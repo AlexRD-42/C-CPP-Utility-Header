@@ -10,7 +10,10 @@
 	#include <stdint.h>
 	#include <stdbool.h>
 	#include <limits.h>
-	#define static_assert(cond, msg) _Static_assert(cond, msg)
+    #if __STDC_VERSION__ < 202311L
+        #define auto __auto_type
+		#define static_assert(cond, msg) _Static_assert(cond, msg)
+    #endif
 #endif
 
 #define WORD_SIZE	sizeof(size_t)
