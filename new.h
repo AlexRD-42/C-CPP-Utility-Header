@@ -31,3 +31,4 @@ typedef _Complex float f32x2;
 #endif
 
 #define FCAST(a) ({float _tmp; MEMCPY_INLINE(&_tmp, &a, sizeof(_tmp)); _tmp;})
+// __attribute__((cleanup(cleanup_int)))
