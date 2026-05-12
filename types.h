@@ -39,3 +39,18 @@ typedef union
 	int8_t i8[8]; int16_t i16[4]; int32_t i32[2]; int64_t i64;
 	float f32; double f64;
 }	m64;
+
+
+typedef float f32x4 __attribute__((vector_size(16)));
+
+typedef union
+{
+	float data __attribute__((vector_size(16)));
+	struct
+	{
+		float x;
+		float y;
+		float z;
+		float w;
+	};
+}	vec4;

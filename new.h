@@ -30,5 +30,15 @@ typedef _Complex float f32x2;
     #define ON_DEBUG(x) ((void)0)
 #endif
 
+#define KIB 1024
+#define MIB 1048576
+#define GIB 1073741824
+
 #define FCAST(a) ({float _tmp; MEMCPY_INLINE(&_tmp, &a, sizeof(_tmp)); _tmp;})
+
+#define MEM_READ(a) ({float _tmp; MEMCPY_INLINE(&_tmp, &a, sizeof(_tmp)); _tmp;})
+
+#define CAST(a, type) ({type _tmp; MEMCPY_INLINE(&_tmp, &a, sizeof(type)); _tmp;})
+
+#define AUTOFREE __attribute__((cleanup(freep)))
 // __attribute__((cleanup(cleanup_int)))
